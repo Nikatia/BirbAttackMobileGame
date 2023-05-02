@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Nest : MonoBehaviour
 {
+    public GameObject eggs;
+    public GameObject cameraForSounds;
+    public AudioClip failClip;
+
     private Vector3 nestScale, maxNest;
     private int nestGrowth;
-    public GameObject eggs;
+    private bool nestDone;
+    private AudioSource camAudio;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +21,8 @@ public class Nest : MonoBehaviour
         maxNest = new Vector3(500, 500, 1000);
         nestGrowth = 0;
         transform.localScale = nestScale;
+        nestDone = false;
+        camAudio = cameraForSounds.GetComponent<AudioSource>();
     }
 
     public void NestScaling()
@@ -28,6 +36,13 @@ public class Nest : MonoBehaviour
         else
         {
             eggs.SetActive(true);
+            nestDone = true;
+        }
+
+        if (nestDone)
+        {
+            camAudio.clip = failClip;
+            camAudio.Play();
         }
     }
 }
