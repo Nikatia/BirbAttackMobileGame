@@ -7,11 +7,14 @@ public class Nest : MonoBehaviour
     public GameObject eggs;
     public GameObject cameraForSounds;
     public AudioClip failClip;
+    public GameObject failUI;
+    public GameObject spawn;
 
     private Vector3 nestScale, maxNest;
     private int nestGrowth;
     private bool nestDone;
     private AudioSource camAudio;
+    private GameObject[] birbs;
     
 
     // Start is called before the first frame update
@@ -43,6 +46,16 @@ public class Nest : MonoBehaviour
         {
             camAudio.clip = failClip;
             camAudio.Play();
+            failUI.SetActive(true);
+            spawn.SetActive(false);
+            birbs = GameObject.FindGameObjectsWithTag("Birb");
+            if (birbs != null)
+            {
+                foreach (GameObject birb in birbs)
+                {
+                    Destroy(birb.gameObject);
+                }
+            }
         }
     }
 }
