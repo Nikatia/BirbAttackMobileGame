@@ -9,10 +9,10 @@ public class Nest : MonoBehaviour
     public AudioClip failClip;
     public GameObject failUI;
     public GameObject spawn;
+    public bool nestDone;
 
     private Vector3 nestScale, maxNest;
     private int nestGrowth;
-    private bool nestDone;
     private AudioSource camAudio;
     private GameObject[] birbs;
     

@@ -60,18 +60,16 @@ public class Shooting : MonoBehaviour
             //when touch has ended, shoots
             if (Input.GetTouch(0).phase == TouchPhase.Ended && rdy == true)
             {
-                Debug.Log("Shoot");
                 StartCoroutine(Shoot());
             }
         }
     }
 
+    //sync animation with shooting
     IEnumerator Shoot()
     {
-        Debug.Log("inside shoot");
         rdy = false;
         anim.SetTrigger("Shoot");
-        Debug.Log("after trigger");
         yield return new WaitForSeconds(0.1f);
         Instantiate(stone, this.transform.position, this.transform.rotation);
         yield return new WaitForSeconds(1.15f);

@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birbPrefab: {fileID: 2823006361779975442, guid: c8add6a40a18a5744a06dfba18ab69b3, type: 3}
+  maxRounds: 7
+  spawnTime: 10
 --- !u!1 &530594603
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class BirbMovement : MonoBehaviour
 {
     public float speed;
+
+    private float maxSpeed;
+    private float minSpeed;
+
     private bool isUp = true;
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(5f, 35f);
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "1stChallenge")
+        {
+            maxSpeed = 20f;
+            minSpeed = 10f;
+        }
+        speed = Random.Range(minSpeed, maxSpeed);
         StartCoroutine(UpAndDown());
     }
 
