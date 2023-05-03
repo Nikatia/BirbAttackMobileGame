@@ -7,6 +7,7 @@ public class Win : MonoBehaviour
     public GameObject nest;
     public GameObject spawn;
     public int birbs;
+    public GameObject winlUI;
 
     private bool roundsDone;
     private bool nestDone;
@@ -32,7 +33,7 @@ public class Win : MonoBehaviour
         }
         if (roundsDone == true && areBirbs == false && nestDone == false)
         {
-            Debug.Log("WIN");
+            winlUI.SetActive(true);
         }
     }
 

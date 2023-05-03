@@ -9,11 +9,13 @@ public class Spawning : MonoBehaviour
     public int maxRounds;
     public float spawnTime;
     public bool done;
+    public GameObject rain;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(MoveAndSpawn());
+        StartCoroutine(StartRain());
         done = false;
     }
 
@@ -30,5 +32,11 @@ public class Spawning : MonoBehaviour
         {
             done = true;
         }
+    }
+
+    IEnumerator StartRain()
+    {
+        yield return new WaitForSeconds(36f);
+        rain.SetActive(true);
     }
 }
