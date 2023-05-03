@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UniGLTF;
 using UnityEngine;
 
 public class Nest : MonoBehaviour
@@ -10,9 +11,9 @@ public class Nest : MonoBehaviour
     public GameObject failUI;
     public GameObject spawn;
     public bool nestDone;
+    public int nestGrowth;
 
     private Vector3 nestScale, maxNest;
-    private int nestGrowth;
     private AudioSource camAudio;
     private GameObject[] birbs;
     
@@ -26,6 +27,14 @@ public class Nest : MonoBehaviour
         transform.localScale = nestScale;
         nestDone = false;
         camAudio = cameraForSounds.GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (cameraForSounds == null)
+        {
+            AssignAgain();
+        }
     }
 
     public void NestScaling()
@@ -57,5 +66,17 @@ public class Nest : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void CleanNest()
+    {
+        nestGrowth = 0;
+    }
+
+    public void AssignAgain()
+    {
+        cameraForSounds = GameObject.Find("Main Camera");
+        failUI = GameObject.Find("FailUI");
+        spawn = GameObject.Find("Spawn");
     }
 }

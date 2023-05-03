@@ -8,6 +8,7 @@ public class Win : MonoBehaviour
     public GameObject spawn;
     public int birbs;
     public GameObject winlUI;
+    public bool win;
 
     private bool roundsDone;
     private bool nestDone;
@@ -16,10 +17,14 @@ public class Win : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nest = GameObject.Find("Nest");
+        nest.GetComponentInParent<DontDestroy>().MoveToScene();
         areBirbs = true;
         maxBirbs = spawn.GetComponent<Spawning>().maxRounds;
         maxBirbs++;
         birbs = 0;
+        win = false;
+        nestDone = false;
     }
 
     // Update is called once per frame
@@ -34,6 +39,7 @@ public class Win : MonoBehaviour
         if (roundsDone == true && areBirbs == false && nestDone == false)
         {
             winlUI.SetActive(true);
+            win = true;
         }
     }
 

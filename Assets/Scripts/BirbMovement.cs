@@ -22,6 +22,11 @@ public class BirbMovement : MonoBehaviour
             maxSpeed = 20f;
             minSpeed = 10f;
         }
+        if (sceneName == "2ndChallenge")
+        {
+            maxSpeed = 30f;
+            minSpeed = 20f;
+        }
         speed = Random.Range(minSpeed, maxSpeed);
         StartCoroutine(UpAndDown());
     }
