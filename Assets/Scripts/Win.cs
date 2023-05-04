@@ -17,8 +17,6 @@ public class Win : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nest = GameObject.Find("Nest");
-        nest.GetComponentInParent<DontDestroy>().MoveToScene();
         areBirbs = true;
         maxBirbs = spawn.GetComponent<Spawning>().maxRounds;
         maxBirbs++;

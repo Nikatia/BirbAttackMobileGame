@@ -10,6 +10,7 @@ public class Nest : MonoBehaviour
     public AudioClip failClip;
     public GameObject failUI;
     public GameObject spawn;
+    public GameObject saveData;
     public bool nestDone;
     public int nestGrowth;
 
@@ -21,29 +22,30 @@ public class Nest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nestScale = new Vector3(500, 500, 0);
         maxNest = new Vector3(500, 500, 1000);
-        nestGrowth = 0;
+
+        if (saveData == null)
+        {
+            saveData = GameObject.Find("SaveData");
+        }
+
+        nestGrowth = saveData.GetComponent<NoDestroyData>().nestGrowth;
+        nestScale = new Vector3(500, 500, nestGrowth);
         transform.localScale = nestScale;
+
         nestDone = false;
         camAudio = cameraForSounds.GetComponent<AudioSource>();
-    }
-
-    private void Update()
-    {
-        if (cameraForSounds == null)
-        {
-            AssignAgain();
-        }
     }
 
     public void NestScaling()
     {
         if (!nestScale.Equals(maxNest))
         {
+            Debug.Log("Grow");
             nestGrowth = nestGrowth + 200;
             nestScale = new Vector3(500, 500, nestGrowth);
             transform.localScale = nestScale;
+            saveData.GetComponent<NoDestroyData>().NestGrowthSave();
         }
         else
         {
@@ -71,12 +73,5 @@ public class Nest : MonoBehaviour
     public void CleanNest()
     {
         nestGrowth = 0;
-    }
-
-    public void AssignAgain()
-    {
-        cameraForSounds = GameObject.Find("Main Camera");
-        failUI = GameObject.Find("FailUI");
-        spawn = GameObject.Find("Spawn");
     }
 }
