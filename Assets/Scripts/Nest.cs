@@ -11,6 +11,7 @@ public class Nest : MonoBehaviour
     public GameObject failUI;
     public GameObject spawn;
     public GameObject saveData;
+    public GameObject analytics;
     public bool nestDone;
     public int nestGrowth;
 
@@ -67,6 +68,9 @@ public class Nest : MonoBehaviour
                     Destroy(birb.gameObject);
                 }
             }
+
+            //launches analytics script: level failed method.
+            analytics.GetComponent<Analytics>().LevelFailed();
         }
     }
 

@@ -6,8 +6,9 @@ public class Win : MonoBehaviour
 {
     public GameObject nest;
     public GameObject spawn;
-    public int birbs;
+    public GameObject analytics;
     public GameObject winlUI;
+    public int birbs;
     public bool win;
 
     private bool roundsDone;
@@ -38,6 +39,9 @@ public class Win : MonoBehaviour
         {
             winlUI.SetActive(true);
             win = true;
+
+            //launches analytics script: level succeeded method.
+            analytics.GetComponent<Analytics>().LevelSucceeded();
         }
     }
 

@@ -327,8 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nest: {fileID: 919132149386005341}
   spawn: {fileID: 502432467}
-  birbs: 0
+  analytics: {fileID: 997006791}
   winlUI: {fileID: 277395871}
+  birbs: 0
   win: 0
 --- !u!1 &530594603
 GameObject:
@@ -1038,6 +1039,49 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6525029510004671524, guid: f8e21a845fd6b5648bb0864c53719721, type: 3}
   m_PrefabInstance: {fileID: 1271718110}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &997006791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997006793}
+  - component: {fileID: 997006792}
+  m_Layer: 0
+  m_Name: Analytics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &997006792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997006791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c453baad2926c5f42a80d0f9887ac9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &997006793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997006791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 979.85815, y: 721.7577, z: -136.11365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &999581719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1176,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 1stChallenge
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 997006792}
+        m_TargetAssemblyTypeName: Analytics, Assembly-CSharp
+        m_MethodName: Replay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &999581722
@@ -1605,6 +1661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sling: {fileID: 919132147862201135}
   stone: {fileID: 7285172453133393499, guid: fb605dd49c1121b46a703ded4998309e, type: 3}
+  analytics: {fileID: 997006791}
 --- !u!1 &1204825418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1999,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 2ndChallenge
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 997006792}
+        m_TargetAssemblyTypeName: Analytics, Assembly-CSharp
+        m_MethodName: ChoseToNotClearNest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1367530535
@@ -2857,6 +2926,18 @@ MonoBehaviour:
           m_StringArgument: 2ndChallenge
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 997006792}
+        m_TargetAssemblyTypeName: Analytics, Assembly-CSharp
+        m_MethodName: ChoseToClearNest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1857530444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,6 +3651,7 @@ MonoBehaviour:
   failUI: {fileID: 473467117}
   spawn: {fileID: 502432467}
   saveData: {fileID: 0}
+  analytics: {fileID: 997006791}
   nestDone: 0
   nestGrowth: 0
 --- !u!23 &1711813854789911290

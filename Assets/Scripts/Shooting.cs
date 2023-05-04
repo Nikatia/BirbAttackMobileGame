@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject sling;
     public GameObject stone;
     Animator anim;
+    public GameObject analytics;
 
     private float rotatespeed = 50f;
     private float startingPositionY;
@@ -61,6 +62,7 @@ public class Shooting : MonoBehaviour
             if (Input.GetTouch(0).phase == TouchPhase.Ended && rdy == true)
             {
                 StartCoroutine(Shoot());
+                analytics.GetComponent<Analytics>().AddShots();
             }
         }
     }
