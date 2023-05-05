@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class Shooting : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Shooting : MonoBehaviour
     private float rotatespeed = 50f;
     private float startingPositionY;
     private float startingPositionX;
+    private float firstWait, secondWait;
 
     private bool rdy;
 
@@ -19,6 +22,21 @@ public class Shooting : MonoBehaviour
     {
         anim = sling.gameObject.GetComponent<Animator>();
         rdy = true;
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "1stChallenge" || sceneName == "2ndChallenge")
+        {
+            anim.speed = 1;
+            firstWait = 0.1f;
+            secondWait = 1.15f;
+        }
+        else
+        {
+            anim.speed = 2;
+            firstWait = 0.05f;
+            secondWait = 0.575f;
+        }
     }
 
     void Update()
@@ -72,9 +90,9 @@ public class Shooting : MonoBehaviour
     {
         rdy = false;
         anim.SetTrigger("Shoot");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(firstWait);
         Instantiate(stone, this.transform.position, this.transform.rotation);
-        yield return new WaitForSeconds(1.15f);
+        yield return new WaitForSeconds(secondWait);
         anim.ResetTrigger("Shoot");
         rdy = true;
     }
