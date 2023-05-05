@@ -12,7 +12,7 @@ public class Analytics : MonoBehaviour
     private GameObject[] birbs;
     private int shots, birbsKilled, timeInSeconds, leftBirbsCount;
     private float levelTimer;
-    private bool updateTimer = false;
+    private bool updateTimer = false, nestCleared;
 
     // Start is called before the first frame update
     async void Start()
@@ -24,6 +24,7 @@ public class Analytics : MonoBehaviour
         sceneName = scene.name;
         shots = 0;
         birbsKilled = 0;
+        nestCleared = false;
 
         try
         {
@@ -115,6 +116,8 @@ public class Analytics : MonoBehaviour
 
     public void ChoseToClearNest()
     {
+        nestCleared = true;
+
         Dictionary<string, object> parameters = new Dictionary<string, object>()
         {
             { "nestClearing", true }
@@ -124,11 +127,14 @@ public class Analytics : MonoBehaviour
 
     public void ChoseToNotClearNest()
     {
-        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        if (!nestCleared)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
         {
             { "nestClearing", false }
         };
-        AnalyticsService.Instance.CustomData("clearNest", parameters);
+            AnalyticsService.Instance.CustomData("clearNest", parameters);
+        }
     }
 
     public void Replay()
