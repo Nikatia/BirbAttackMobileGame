@@ -14,6 +14,7 @@ public class Win : MonoBehaviour
     private bool roundsDone;
     private bool nestDone;
     private bool areBirbs;
+    private bool winAnaTriggered;
     private int maxBirbs;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Win : MonoBehaviour
         birbs = 0;
         win = false;
         nestDone = false;
+        winAnaTriggered = false;
     }
 
     // Update is called once per frame
@@ -40,13 +42,23 @@ public class Win : MonoBehaviour
             winlUI.SetActive(true);
             win = true;
 
-            //launches analytics script: level succeeded method.
-            analytics.GetComponent<Analytics>().LevelSucceeded();
+            if (!winAnaTriggered)
+            {
+                WinAnalyticsTrigger();
+            }
         }
     }
 
     public void AddBirb()
     {
         birbs++;
+    }
+
+    private void WinAnalyticsTrigger()
+    {
+        winAnaTriggered = true;
+
+        //launches analytics script: level succeeded method.
+        analytics.GetComponent<Analytics>().LevelSucceeded();
     }
 }

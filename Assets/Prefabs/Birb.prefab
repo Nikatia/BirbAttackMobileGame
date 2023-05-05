@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcc471ce6ac8af428a44ce72474e6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nest: {fileID: 919132149155446097, guid: d41508136a7d7fc408c7037d8f84f8c6, type: 3}
 --- !u!54 &5909641605987033465
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -196,8 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  maxSpeed: 20
-  minSpeed: 10
 --- !u!82 &1673555643710492521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,7 +207,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0067ac0e033fa574085fa79d9c86f8ce, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.49413234
   m_Pitch: 1
   Loop: 1
   Mute: 0

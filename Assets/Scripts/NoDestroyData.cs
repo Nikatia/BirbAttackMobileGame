@@ -16,11 +16,6 @@ public class NoDestroyData : MonoBehaviour
         NestGrowthReset();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void NestGrowthSave()
     {
         nestGrowth = nestGrowth + 200;
