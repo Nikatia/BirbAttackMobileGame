@@ -174,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &120427935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1660, y: 1000}
+  m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120427936
 MonoBehaviour:
@@ -1037,7 +1037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &258345719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1107,6 +1107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 277395872}
+  - component: {fileID: 277395873}
   m_Layer: 5
   m_Name: Win
   m_TagString: Untagged
@@ -1137,6 +1138,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &277395873
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277395871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e507941916a1fa4488f49cb859dd370e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &360761220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &360761223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,6 +1340,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1178722249}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &360761225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,6 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 394002857}
+  - component: {fileID: 394002858}
   m_Layer: 5
   m_Name: Craft
   m_TagString: Untagged
@@ -1401,6 +1436,25 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00012207031, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &394002858
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394002856}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 979308bbec9469848b534bc9e40f226c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &473467117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,6 +1464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473467118}
+  - component: {fileID: 473467119}
   m_Layer: 5
   m_Name: Fail
   m_TagString: Untagged
@@ -1439,6 +1494,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &473467119
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473467117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0760b48569ede1741bf48211f49c5e30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &473520820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,6 +1712,7 @@ MonoBehaviour:
   spawn: {fileID: 502432467}
   analytics: {fileID: 997006791}
   winlUI: {fileID: 277395871}
+  sling: {fileID: 1178722247}
   birbs: 0
   win: 0
 --- !u!1 &514128497
@@ -1886,7 +1961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569645370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2389,7 +2464,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -2593,7 +2668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &640482879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2631,7 +2706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &692241647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2669,7 +2744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &704176702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2707,7 +2782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &723252118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2880,7 +2955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -527.3, y: -28.35}
+  m_AnchoredPosition: {x: -527.3, y: -28.350098}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &927083023
@@ -2930,6 +3005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 394002856}
+  craftOpenButton: {fileID: 927083021}
 --- !u!114 &927083026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2974,30 +3051,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 394002856}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 927083021}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1062470785}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Pause
@@ -3012,7 +3065,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 927083025}
         m_TargetAssemblyTypeName: InGameButtons, Assembly-CSharp
-        m_MethodName: PauseGame
+        m_MethodName: CraftOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3037,7 +3090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &943567754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3261,7 +3314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &999581720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3949,6 +4002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &1127002307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4144,7 +4199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1163580799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4177,6 +4232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &1163580801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4438,7 +4495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178722247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a257ce36e9a33bd4eb6dd81aca4dffb4, type: 3}
   m_Name: 
@@ -5058,7 +5115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1367530533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5216,7 +5273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1379746010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5681,7 +5738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456061957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5985,6 +6042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &1484381475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,6 +6397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &1656364950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6864,7 +6925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1857530441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7867,7 +7928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -385.9, y: -80.9}
+  m_AnchoredPosition: {x: -385.9, y: -80.8999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041075569
@@ -7882,6 +7943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftGroup: {fileID: 0}
+  craftOpenButton: {fileID: 0}
 --- !u!114 &2041075570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8394,6 +8457,7 @@ MonoBehaviour:
   spawn: {fileID: 502432467}
   saveData: {fileID: 0}
   analytics: {fileID: 997006791}
+  sling: {fileID: 1178722247}
   nestDone: 0
   nestGrowth: 0
 --- !u!23 &1711813854789911290

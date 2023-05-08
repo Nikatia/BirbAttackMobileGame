@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.733
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -4148,6 +4148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestGrowth: 0
+  sticks: 0
+  strings: 0
 --- !u!4 &1628248009
 Transform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Win : MonoBehaviour
     public GameObject spawn;
     public GameObject analytics;
     public GameObject winlUI;
+    public GameObject sling;
     public int birbs;
     public bool win;
 
@@ -40,6 +41,7 @@ public class Win : MonoBehaviour
         if (roundsDone == true && areBirbs == false && nestDone == false)
         {
             winlUI.SetActive(true);
+            sling.GetComponent<Shooting>().enabled = false;
             win = true;
 
             if (!winAnaTriggered)

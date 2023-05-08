@@ -12,6 +12,7 @@ public class Nest : MonoBehaviour
     public GameObject spawn;
     public GameObject saveData;
     public GameObject analytics;
+    public GameObject sling;
     public bool nestDone;
     public int nestGrowth;
 
@@ -68,7 +69,7 @@ public class Nest : MonoBehaviour
                     Destroy(birb.gameObject);
                 }
             }
-
+            sling.GetComponent<Shooting>().enabled = false;
             //launches analytics script: level failed method.
             analytics.GetComponent<Analytics>().LevelFailed();
         }
