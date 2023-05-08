@@ -34,10 +34,9 @@ public class Analytics : MonoBehaviour
         catch (ConsentCheckException e)
         {
             Debug.Log(e.Reason);
-            Debug.Log("WTF");
             // Something went wrong when checking the GeoIP, check the e.Reason and handle appropriately.
         }
-        Debug.Log("Went ok?");
+        //Debug.Log("Analytics went ok.");
     }
 
     // Update is called once per frame

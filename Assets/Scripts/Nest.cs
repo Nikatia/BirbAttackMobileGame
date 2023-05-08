@@ -27,7 +27,7 @@ public class Nest : MonoBehaviour
 
         if (saveData == null)
         {
-            saveData = GameObject.Find("SaveData");
+            saveData = GameObject.Find("SaveData"); //data, which is not destroyed inbetween scenes
         }
 
         nestGrowth = saveData.GetComponent<NoDestroyData>().nestGrowth;
@@ -40,7 +40,7 @@ public class Nest : MonoBehaviour
 
     public void NestScaling()
     {
-        if (!nestScale.Equals(maxNest))
+        if (!nestScale.Equals(maxNest)) //if nest is still not ready for the eggs
         {
             Debug.Log("Grow");
             nestGrowth = nestGrowth + 200;
@@ -48,13 +48,13 @@ public class Nest : MonoBehaviour
             transform.localScale = nestScale;
             saveData.GetComponent<NoDestroyData>().NestGrowthSave();
         }
-        else
+        else //if nest is prepared for the eggs
         {
             eggs.SetActive(true);
             nestDone = true;
         }
 
-        if (nestDone)
+        if (nestDone) //game over
         {
             camAudio.clip = failClip;
             camAudio.Play();

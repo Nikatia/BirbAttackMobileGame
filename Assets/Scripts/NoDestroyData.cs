@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NoDestroyData : MonoBehaviour
 {
-    public int nestGrowth;
+    public int nestGrowth, sticks, strings;
     private GameObject nest;
 
     private void Awake()
@@ -15,6 +15,8 @@ public class NoDestroyData : MonoBehaviour
 
     private void Start()
     {
+        sticks = 0;
+        strings = 0;
         NestGrowthReset();
         
     }
@@ -34,5 +36,15 @@ public class NoDestroyData : MonoBehaviour
             nest = GameObject.Find("Nest");
             nest.GetComponent<Nest>().CleanNest();
         }
+    }
+
+    public void AddStick()
+    {
+        sticks++;
+    }
+
+    public void AddString() 
+    {
+        strings++;
     }
 }
