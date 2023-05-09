@@ -1212,6 +1212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftGroup: {fileID: 0}
   craftOpenButton: {fileID: 0}
+  cameraForAudio: {fileID: 0}
 --- !u!114 &360761223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2853,6 +2854,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3789175, y: 2.347382, z: 5.330086}
   m_Center: {x: 0.5338174, y: 0.17175598, z: -1.1937444}
+--- !u!1 &841073415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841073417}
+  - component: {fileID: 841073416}
+  m_Layer: 0
+  m_Name: InGameButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &841073416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841073415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftGroup: {fileID: 394002856}
+  craftOpenButton: {fileID: 927083021}
+  cameraForAudio: {fileID: 1062470780}
+--- !u!4 &841073417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841073415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -354.7637, y: 402.93488, z: -0.99890137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &865508391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,7 +2978,6 @@ GameObject:
   - component: {fileID: 927083024}
   - component: {fileID: 927083023}
   - component: {fileID: 927083026}
-  - component: {fileID: 927083025}
   m_Layer: 5
   m_Name: CraftButton
   m_TagString: Untagged
@@ -2993,20 +3039,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927083021}
   m_CullTransparentMesh: 1
---- !u!114 &927083025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927083021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 394002856}
-  craftOpenButton: {fileID: 927083021}
 --- !u!114 &927083026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3051,19 +3083,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062470785}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 927083025}
+      - m_Target: {fileID: 841073416}
         m_TargetAssemblyTypeName: InGameButtons, Assembly-CSharp
         m_MethodName: CraftOpen
         m_Mode: 1
@@ -3693,7 +3713,7 @@ GameObject:
   - component: {fileID: 1067024759}
   - component: {fileID: 1067024758}
   m_Layer: 5
-  m_Name: Net
+  m_Name: NetStrings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3962,7 +3982,6 @@ GameObject:
   - component: {fileID: 1127002309}
   - component: {fileID: 1127002308}
   - component: {fileID: 1127002307}
-  - component: {fileID: 1127002306}
   m_Layer: 5
   m_Name: Net
   m_TagString: Untagged
@@ -3990,20 +4009,6 @@ RectTransform:
   m_AnchoredPosition: {x: 565, y: -191.15}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1127002306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127002304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &1127002307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4192,7 +4197,6 @@ GameObject:
   - component: {fileID: 1163580803}
   - component: {fileID: 1163580802}
   - component: {fileID: 1163580801}
-  - component: {fileID: 1163580800}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -4220,20 +4224,6 @@ RectTransform:
   m_AnchoredPosition: {x: 500, y: -421.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1163580800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163580798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &1163580801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4290,7 +4280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1163580800}
+      - m_Target: {fileID: 841073416}
         m_TargetAssemblyTypeName: InGameButtons, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -4515,7 +4505,7 @@ GameObject:
   - component: {fileID: 1184486289}
   - component: {fileID: 1184486288}
   m_Layer: 5
-  m_Name: Net
+  m_Name: NetSticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4880,6 +4870,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295346754}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1330182035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1330182037}
+  - component: {fileID: 1330182036}
+  m_Layer: 0
+  m_Name: SaveData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1330182036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330182035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782c29f59a869d54091754c526b7ae93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nestGrowth: 0
+  sticks: 0
+  strings: 0
+  speederOn: 0
+  kiteOn: 0
+  netOn: 0
+--- !u!4 &1330182037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330182035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 979.85815, y: 721.7577, z: -136.11365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336391995
 GameObject:
   m_ObjectHideFlags: 0
@@ -5412,7 +5451,7 @@ GameObject:
   - component: {fileID: 1379979088}
   - component: {fileID: 1379979087}
   m_Layer: 5
-  m_Name: x2SlingShotSpeed
+  m_Name: SpeederStrings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5573,6 +5612,10 @@ MonoBehaviour:
   kiteStrings: {fileID: 1990503899}
   netStrings: {fileID: 1067024756}
   noDestroyData: {fileID: 0}
+  craftSpeederButton: {fileID: 1484381472}
+  craftKiteButton: {fileID: 1656364947}
+  craftNetButton: {fileID: 1127002304}
+  sling: {fileID: 1178722247}
 --- !u!4 &1435906696
 Transform:
   m_ObjectHideFlags: 0
@@ -5867,7 +5910,7 @@ GameObject:
   - component: {fileID: 1476966221}
   - component: {fileID: 1476966220}
   m_Layer: 5
-  m_Name: Kite
+  m_Name: KiteSticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6002,7 +6045,6 @@ GameObject:
   - component: {fileID: 1484381477}
   - component: {fileID: 1484381476}
   - component: {fileID: 1484381475}
-  - component: {fileID: 1484381474}
   m_Layer: 5
   m_Name: x2SlingShotSpeed
   m_TagString: Untagged
@@ -6030,20 +6072,6 @@ RectTransform:
   m_AnchoredPosition: {x: 565, y: 208}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1484381474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484381472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &1484381475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6099,7 +6127,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1484381477}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1435906695}
+        m_TargetAssemblyTypeName: Items, Assembly-CSharp
+        m_MethodName: TurnOnSpeeder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1484381477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6357,7 +6397,6 @@ GameObject:
   - component: {fileID: 1656364952}
   - component: {fileID: 1656364951}
   - component: {fileID: 1656364950}
-  - component: {fileID: 1656364949}
   m_Layer: 5
   m_Name: Kite
   m_TagString: Untagged
@@ -6385,20 +6424,6 @@ RectTransform:
   m_AnchoredPosition: {x: 565, y: 10.1}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1656364949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656364947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &1656364950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7604,7 +7629,7 @@ GameObject:
   - component: {fileID: 1990503902}
   - component: {fileID: 1990503901}
   m_Layer: 5
-  m_Name: Kite
+  m_Name: KiteStrings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7770,7 +7795,7 @@ GameObject:
   - component: {fileID: 2017169113}
   - component: {fileID: 2017169112}
   m_Layer: 5
-  m_Name: x2SlingShotSpeed
+  m_Name: SpeederSticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7904,7 +7929,6 @@ GameObject:
   - component: {fileID: 2041075572}
   - component: {fileID: 2041075571}
   - component: {fileID: 2041075570}
-  - component: {fileID: 2041075569}
   m_Layer: 5
   m_Name: HelpButton
   m_TagString: Untagged
@@ -7931,20 +7955,6 @@ RectTransform:
   m_AnchoredPosition: {x: -385.9, y: -80.8999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2041075569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2041075567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &2041075570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7989,7 +7999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2041075569}
+      - m_Target: {fileID: 841073416}
         m_TargetAssemblyTypeName: InGameButtons, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1

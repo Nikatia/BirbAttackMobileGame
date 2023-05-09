@@ -11,32 +11,28 @@ public class Shooting : MonoBehaviour
     Animator anim;
     public GameObject analytics;
 
+    private GameObject saveData;
     private float rotatespeed = 50f;
     private float startingPositionY;
     private float startingPositionX;
     private float firstWait, secondWait;
 
     private bool rdy;
+    private bool speederOn;
+
 
     private void Start()
     {
+        if (saveData == null)
+        {
+            saveData = GameObject.Find("SaveData"); //data, which is not destroyed inbetween scenes
+        }
+
         anim = sling.gameObject.GetComponent<Animator>();
         rdy = true;
 
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
-        if (sceneName == "1stChallenge" || sceneName == "2ndChallenge")
-        {
-            anim.speed = 1;
-            firstWait = 0.1f;
-            secondWait = 1.15f;
-        }
-        else
-        {
-            anim.speed = 2;
-            firstWait = 0.05f;
-            secondWait = 0.575f;
-        }
+        speederOn = saveData.GetComponent<NoDestroyData>().speederOn;
+        AdjustSlingSpeed();
     }
 
     void Update()
@@ -95,6 +91,28 @@ public class Shooting : MonoBehaviour
         yield return new WaitForSeconds(secondWait);
         anim.ResetTrigger("Shoot");
         rdy = true;
+    }
+
+    public void TurnOnSpeeder()
+    {
+        speederOn = true;
+        AdjustSlingSpeed();
+    }
+
+    public void AdjustSlingSpeed()
+    {
+        if (speederOn == false)
+        {
+            anim.speed = 1;
+            firstWait = 0.1f;
+            secondWait = 1.15f;
+        }
+        else
+        {
+            anim.speed = 2;
+            firstWait = 0.05f;
+            secondWait = 0.575f;
+        }
     }
 
 }

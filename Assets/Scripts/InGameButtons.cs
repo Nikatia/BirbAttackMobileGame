@@ -7,10 +7,12 @@ public class InGameButtons : MonoBehaviour
 {
     public GameObject craftGroup;
     public GameObject craftOpenButton;
+    public GameObject cameraForAudio;
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+        cameraForAudio.GetComponent<AudioSource>().Pause();
     }
 
     public void ResumeGame()
@@ -30,4 +32,6 @@ public class InGameButtons : MonoBehaviour
         PauseGame();
         craftOpenButton.gameObject.SetActive(false);
     }
+
+
 }

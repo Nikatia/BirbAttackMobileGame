@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class NoDestroyData : MonoBehaviour
 {
     public int nestGrowth, sticks, strings;
+    
+    public bool speederOn, kiteOn, netOn;
+
     private GameObject nest;
 
     private void Awake()
@@ -18,7 +21,9 @@ public class NoDestroyData : MonoBehaviour
         sticks = 0;
         strings = 0;
         NestGrowthReset();
-        
+        speederOn = false;
+        kiteOn = false;
+        netOn = false;
     }
 
     public void NestGrowthSave()
@@ -46,5 +51,20 @@ public class NoDestroyData : MonoBehaviour
     public void AddString() 
     {
         strings++;
+    }
+
+    public void TurnOnSpeeder()
+    {
+        speederOn = true;
+    }
+
+    public void TurnOnKite()
+    {
+        kiteOn = true;
+    }
+
+    public void TurnOnNet()
+    {
+        netOn = true;
     }
 }

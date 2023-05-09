@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public GameObject birb;
-    public GameObject camera;
+    public GameObject cameraForAudio;
     public GameObject slider;
 
     private float savedVolume;
@@ -26,6 +26,6 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("volume", volume);
         PlayerPrefs.Save();
         birb.GetComponent<AudioSource>().volume = volume;
-        camera.GetComponent<AudioSource>().volume = volume;
+        cameraForAudio.GetComponent<AudioSource>().volume = volume;
     }
 }

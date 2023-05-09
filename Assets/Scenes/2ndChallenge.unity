@@ -776,6 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftGroup: {fileID: 1943777401}
   craftOpenButton: {fileID: 120119542}
+  cameraForAudio: {fileID: 1062470780}
 --- !u!114 &120119547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,18 +832,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1062470785}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &149047804
 GameObject:
@@ -1479,6 +1468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftGroup: {fileID: 0}
   craftOpenButton: {fileID: 0}
+  cameraForAudio: {fileID: 0}
 --- !u!114 &214390810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,6 +2015,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436606293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436606295}
+  - component: {fileID: 436606294}
+  m_Layer: 0
+  m_Name: InGameButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &436606294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436606293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftGroup: {fileID: 1943777401}
+  craftOpenButton: {fileID: 120119542}
+  cameraForAudio: {fileID: 1062470780}
+--- !u!4 &436606295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436606293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -354.7637, y: 402.93488, z: -0.99890137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502432467
 GameObject:
@@ -3015,6 +3051,10 @@ MonoBehaviour:
   kiteStrings: {fileID: 109640594}
   netStrings: {fileID: 1256577123}
   noDestroyData: {fileID: 0}
+  craftSpeederButton: {fileID: 1255393164}
+  craftKiteButton: {fileID: 214390807}
+  craftNetButton: {fileID: 1678354268}
+  sling: {fileID: 1178722247}
 --- !u!4 &662882027
 Transform:
   m_ObjectHideFlags: 0
@@ -4759,7 +4799,6 @@ GameObject:
   - component: {fileID: 1249750190}
   - component: {fileID: 1249750189}
   - component: {fileID: 1249750188}
-  - component: {fileID: 1249750187}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -4787,20 +4826,6 @@ RectTransform:
   m_AnchoredPosition: {x: 500, y: -421.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1249750187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249750185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bc531693bdddaa48ac3ebacc1c26301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craftGroup: {fileID: 0}
-  craftOpenButton: {fileID: 0}
 --- !u!114 &1249750188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4857,7 +4882,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249750187}
+      - m_Target: {fileID: 436606294}
         m_TargetAssemblyTypeName: InGameButtons, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -4998,6 +5023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftGroup: {fileID: 0}
   craftOpenButton: {fileID: 0}
+  cameraForAudio: {fileID: 0}
 --- !u!114 &1255393167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5053,7 +5079,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1255393169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 662882026}
+        m_TargetAssemblyTypeName: Items, Assembly-CSharp
+        m_MethodName: TurnOnSpeeder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1255393169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6325,6 +6363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftGroup: {fileID: 0}
   craftOpenButton: {fileID: 0}
+  cameraForAudio: {fileID: 0}
 --- !u!114 &1678354271
 MonoBehaviour:
   m_ObjectHideFlags: 0
