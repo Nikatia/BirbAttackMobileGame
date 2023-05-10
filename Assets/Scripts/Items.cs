@@ -14,8 +14,11 @@ public class Items : MonoBehaviour
     public GameObject noDestroyData;
     public GameObject craftSpeederButton, craftKiteButton, craftNetButton;
     public GameObject sling;
+    public GameObject kite;
 
     private int randomNumber, sticks, strings;
+    private int maxSpeederSticks, maxKiteSticks, maxNetSticks;
+    private int maxSpeederStrings, maxKiteStrings, maxNetStrings;
     private Vector3 instPosition;
     private Vector3 stickRotation, stringRotation;
     private bool speederBought, kiteBought, netBought;
@@ -32,47 +35,22 @@ public class Items : MonoBehaviour
         sticks = noDestroyData.GetComponent<NoDestroyData>().sticks;
         strings = noDestroyData.GetComponent <NoDestroyData>().strings;
 
-        speederBought = false;
-        kiteBought = false;
-        netBought = false;
+        maxSpeederSticks = 2;
+        maxSpeederStrings = 4;
+
+        maxKiteSticks = 4;
+        maxKiteStrings = 8;
+
+        maxNetSticks = 10;
+        maxNetStrings = 50;
+
+        BoughtOrNot();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //changes the crafting texts according to owned items and enables button if player has enough of items
-        slingSpeederSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/2";
-        slingSpeederStrings.GetComponent<TextMeshProUGUI>().text = strings + "/2";
-        if (sticks >= 2 && strings >= 2 && speederBought == false)
-        {
-            craftSpeederButton.GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            craftSpeederButton.GetComponent<Button>().interactable = false; ;
-        }
-
-        kiteSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/2";
-        kiteStrings.GetComponent<TextMeshProUGUI>().text = strings + "/15";
-        if (sticks >= 2 && strings >= 15 && kiteBought == false)
-        {
-            craftKiteButton.GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            craftKiteButton.GetComponent<Button>().interactable = false; ;
-        }
-
-        netSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/15";
-        netStrings.GetComponent<TextMeshProUGUI>().text = strings + "/50";
-        if (sticks >= 15 && strings >= 50 && netBought == false)
-        {
-            craftNetButton.GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            craftNetButton.GetComponent<Button>().interactable = false; ;
-        }
+        CraftTextNumbersAndButtons();
     }
 
     public void ItemRoulette(float deathPositionX, float deathPositionY, float deathPositionZ)
@@ -85,7 +63,6 @@ public class Items : MonoBehaviour
         if (randomNumber <=100 && randomNumber > 65)
         {
             //Stick is aquired
-            Debug.Log("Stick");
             noDestroyData.GetComponent<NoDestroyData>().AddStick();
             sticks = noDestroyData.GetComponent<NoDestroyData>().sticks;
             Instantiate(stickPrefab, instPosition, Quaternion.Euler(stickRotation));
@@ -94,7 +71,6 @@ public class Items : MonoBehaviour
         else if (randomNumber <= 65 && randomNumber > 30)
         {
             //String is aquired
-            Debug.Log("String");
             noDestroyData.GetComponent<NoDestroyData>().AddString();
             strings = noDestroyData.GetComponent<NoDestroyData>().strings;
             Instantiate(stringPrefab, instPosition, Quaternion.Euler(stringRotation));
@@ -103,7 +79,6 @@ public class Items : MonoBehaviour
         else
         {
             //RNG GOD says NOPE
-            Debug.Log("Nothing");
         }
     }
 
@@ -120,6 +95,10 @@ public class Items : MonoBehaviour
         speederBought = true;
         sling.GetComponent<Shooting>().TurnOnSpeeder();
         craftSpeederButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
+        sticks = sticks - 2;
+        strings = strings - 2;
+        noDestroyData.GetComponent<NoDestroyData>().sticks = sticks;
+        noDestroyData.GetComponent<NoDestroyData>().strings = strings;
         //Debug.Log("Speeder bought");
     }
 
@@ -127,13 +106,80 @@ public class Items : MonoBehaviour
     {
         noDestroyData.GetComponent<NoDestroyData>().TurnOnKite();
         kiteBought = true;
-        Debug.Log("Kite bought");
+        kite.SetActive(true);
+        craftKiteButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
+        sticks = sticks - 1;
+        strings = strings - 1;
+        noDestroyData.GetComponent<NoDestroyData>().sticks = sticks;
+        noDestroyData.GetComponent<NoDestroyData>().strings = strings;
+        //Debug.Log("Kite bought");
     }
 
     public void TurnOnNet()
     {
         noDestroyData.GetComponent<NoDestroyData>().TurnOnNet();
         netBought = true;
-        Debug.Log("Net bought");
+        craftNetButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
+        //sticks = sticks - 1;
+        //strings = strings - 1;
+        //Debug.Log("Net bought");
+    }
+
+    //changes the crafting texts according to owned items and enables button if player has enough of items
+    private void CraftTextNumbersAndButtons()
+    {
+        //Speeder
+        slingSpeederSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/" + maxSpeederSticks;
+        slingSpeederStrings.GetComponent<TextMeshProUGUI>().text = strings + "/" + maxSpeederStrings;
+        if (sticks >= maxSpeederSticks && strings >= maxSpeederStrings && speederBought == false)
+        {
+            craftSpeederButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            craftSpeederButton.GetComponent<Button>().interactable = false; ;
+        }
+
+        //Kite
+        kiteSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/" + maxKiteSticks;
+        kiteStrings.GetComponent<TextMeshProUGUI>().text = strings + "/" + maxKiteStrings;
+        if (sticks >= maxKiteSticks && strings >= maxKiteStrings && kiteBought == false)
+        {
+            craftKiteButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            craftKiteButton.GetComponent<Button>().interactable = false; ;
+        }
+
+        //Net
+        netSticks.GetComponent<TextMeshProUGUI>().text = sticks + "/" + maxNetSticks;
+        netStrings.GetComponent<TextMeshProUGUI>().text = strings + "/" + maxNetStrings;
+        if (sticks >= maxNetSticks && strings >= maxNetStrings && netBought == false)
+        {
+            craftNetButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            craftNetButton.GetComponent<Button>().interactable = false; ;
+        }
+    }
+
+    private void BoughtOrNot()
+    {
+        //checks in saved data if speeder was bought 
+        speederBought = noDestroyData.GetComponent<NoDestroyData>().speederOn;
+        if (speederBought == true)
+        {
+            craftSpeederButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
+        }
+
+        //checks in saved data if kite was bought
+        kiteBought = noDestroyData.GetComponent<NoDestroyData>().kiteOn;
+        if (kiteBought == true)
+        {
+            kite.SetActive(true);
+            craftKiteButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
+        }
     }
 }

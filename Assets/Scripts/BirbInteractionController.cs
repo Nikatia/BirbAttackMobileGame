@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using Unity.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BirbInteractionController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class BirbInteractionController : MonoBehaviour
     private float deathPositionX;
     private float deathPositionY;
     private float deathPositionZ;
+    private int leftOrRight;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class BirbInteractionController : MonoBehaviour
         spawn = GameObject.Find("Spawn");
         analytics = GameObject.Find("Analytics");
         items = GameObject.Find("Items");
+        leftOrRight = Random.Range(0, 10);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,7 +41,7 @@ public class BirbInteractionController : MonoBehaviour
                 //launches analytics script: method for birb, that reached the house. Includes info about birb's speed.
                 analytics.GetComponent<Analytics>().BirbReachedHouse(birbSpeed);
 
-                ////plays hit animation and destroys birb
+                //plays hit animation and destroys birb
                 anim.Play("PoofHouse");
                 this.GetComponent<BirbMovement>().speed = 0;
                 Destroy(this.gameObject, 1f);
@@ -68,6 +71,29 @@ public class BirbInteractionController : MonoBehaviour
 
                 items.GetComponent<Items>().ItemRoulette(deathPositionX, deathPositionY, deathPositionZ);
             }
+
+            //if birb encounters a kite
+            if (other.CompareTag("Kite"))
+            {
+                //turns left or right depending on randomly generated number at start
+                if (leftOrRight <= 3)
+                {
+                    transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+                }
+            }
+
+            //if birb passed the house without colliding with it
+            if (other.CompareTag("OuterCollider"))
+            {
+                Destroy(this.gameObject);
+
+                //adds a birb to counting in Win script, which later checks winning conditions
+                spawn.GetComponent<Win>().AddBirb();
+            }
         }
         else
         {
@@ -80,6 +106,11 @@ public class BirbInteractionController : MonoBehaviour
         if (other.gameObject.GetComponent<BaseInteractable>() != null)
         {
             other.gameObject.GetComponent<BaseInteractable>().OnExitInteract();
+
+            if (other.CompareTag("Kite"))
+            {
+                transform.rotation = Quaternion.AngleAxis(90, Vector3.up);
+            }
         }
     }
 }

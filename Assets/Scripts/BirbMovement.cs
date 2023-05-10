@@ -12,6 +12,7 @@ public class BirbMovement : MonoBehaviour
     private float minSpeed;
 
     private bool isUp = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class BirbMovement : MonoBehaviour
             minSpeed = 20f;
         }
         speed = Random.Range(minSpeed, maxSpeed);
+
         StartCoroutine(UpAndDown());
     }
 

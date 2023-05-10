@@ -7,6 +7,8 @@ TagManager:
   - Birb
   - House
   - Stone
+  - Kite
+  - OuterCollider
   layers:
   - Default
   - TransparentFX
