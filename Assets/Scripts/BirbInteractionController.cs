@@ -30,6 +30,7 @@ public class BirbInteractionController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if (other.gameObject.GetComponent<BaseInteractable>() != null)
         {
             other.gameObject.GetComponent<BaseInteractable>().OnEnterInteract();

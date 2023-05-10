@@ -15,6 +15,8 @@ public class Items : MonoBehaviour
     public GameObject craftSpeederButton, craftKiteButton, craftNetButton;
     public GameObject sling;
     public GameObject kite;
+    public GameObject net;
+    public GameObject spawn;
 
     private int randomNumber, sticks, strings;
     private int maxSpeederSticks, maxKiteSticks, maxNetSticks;
@@ -41,8 +43,8 @@ public class Items : MonoBehaviour
         maxKiteSticks = 4;
         maxKiteStrings = 8;
 
-        maxNetSticks = 10;
-        maxNetStrings = 50;
+        maxNetSticks = 1;
+        maxNetStrings = 1;
 
         BoughtOrNot();
     }
@@ -95,8 +97,8 @@ public class Items : MonoBehaviour
         speederBought = true;
         sling.GetComponent<Shooting>().TurnOnSpeeder();
         craftSpeederButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
-        sticks = sticks - 2;
-        strings = strings - 2;
+        sticks = sticks - maxSpeederSticks;
+        strings = strings - maxSpeederStrings;
         noDestroyData.GetComponent<NoDestroyData>().sticks = sticks;
         noDestroyData.GetComponent<NoDestroyData>().strings = strings;
         //Debug.Log("Speeder bought");
@@ -108,8 +110,8 @@ public class Items : MonoBehaviour
         kiteBought = true;
         kite.SetActive(true);
         craftKiteButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
-        sticks = sticks - 1;
-        strings = strings - 1;
+        sticks = sticks - maxKiteSticks;
+        strings = strings - maxKiteStrings;
         noDestroyData.GetComponent<NoDestroyData>().sticks = sticks;
         noDestroyData.GetComponent<NoDestroyData>().strings = strings;
         //Debug.Log("Kite bought");
@@ -120,9 +122,13 @@ public class Items : MonoBehaviour
         noDestroyData.GetComponent<NoDestroyData>().TurnOnNet();
         netBought = true;
         craftNetButton.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Done";
-        //sticks = sticks - 1;
-        //strings = strings - 1;
+        net.SetActive(true);
+        sticks = sticks - maxNetSticks;
+        strings = strings - maxNetStrings;
         //Debug.Log("Net bought");
+
+        //moving to next level is not needed anymore, as house is protected with net
+        spawn.GetComponent<Win>().enabled = false;
     }
 
     //changes the crafting texts according to owned items and enables button if player has enough of items

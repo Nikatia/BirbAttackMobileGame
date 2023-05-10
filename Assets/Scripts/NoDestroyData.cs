@@ -18,8 +18,8 @@ public class NoDestroyData : MonoBehaviour
 
     private void Start()
     {
-        sticks = 0;
-        strings = 0;
+        sticks = 1;
+        strings = 1;
         NestGrowthReset();
         speederOn = false;
         kiteOn = false;
