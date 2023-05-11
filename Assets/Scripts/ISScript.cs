@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ISScript : MonoBehaviour
 {
     private string appKey = "19d2d39cd";
-    public GameObject saveData;
+    //public GameObject saveData;
+    //public GameObject cube;
     // Start is called before the first frame update
     void Start()
     {
         IronSource.Agent.init(appKey);
-        saveData = GameObject.Find("SaveData");
+        //saveData = GameObject.Find("SaveData");
     }
 
     private void OnEnable()
@@ -77,7 +79,8 @@ public class ISScript : MonoBehaviour
     // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
     {
-        saveData.GetComponent<NoDestroyData>().NestGrowthReset();
+        //saveData.GetComponent<NoDestroyData>().NestGrowthReset();
+        GameObject.Find("SaveData").GetComponent<NoDestroyData>().NestGrowthReset();
     }
     // The rewarded video ad was failed to show.
     void RewardedVideoOnAdShowFailedEvent(IronSourceError error, IronSourceAdInfo adInfo)

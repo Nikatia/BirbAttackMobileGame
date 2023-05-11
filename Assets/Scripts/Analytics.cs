@@ -129,9 +129,9 @@ public class Analytics : MonoBehaviour
         if (!nestCleared)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>()
-        {
-            { "nestClearing", false }
-        };
+            {
+                { "nestClearing", false }
+            };
             AnalyticsService.Instance.CustomData("clearNest", parameters);
         }
     }
@@ -141,4 +141,35 @@ public class Analytics : MonoBehaviour
         AnalyticsService.Instance.CustomData("replay");
     }
 
+    public void SpeederBought()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "sceneName", sceneName }
+        };
+        AnalyticsService.Instance.CustomData("speederBought", parameters);
+    }
+
+    public void KiteBought()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "sceneName", sceneName }
+        };
+        AnalyticsService.Instance.CustomData("kiteBought", parameters);
+    }
+
+    public void WonByNet()
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "sceneName", sceneName }
+        };
+        AnalyticsService.Instance.CustomData("wonByNet", parameters);
+    }
+
+    public void WonByDetermination()
+    {
+        AnalyticsService.Instance.CustomData("wonByDetermination");
+    }
 }

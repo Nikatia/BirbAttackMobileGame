@@ -43,8 +43,8 @@ public class Items : MonoBehaviour
         maxKiteSticks = 4;
         maxKiteStrings = 8;
 
-        maxNetSticks = 1;
-        maxNetStrings = 1;
+        maxNetSticks = 6;
+        maxNetStrings = 30;
 
         BoughtOrNot();
     }

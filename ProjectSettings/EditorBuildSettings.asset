@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3rdChallenge.unity
     guid: 04f20c04f3226574e8d4c6728ee8870e
+  - enabled: 1
+    path: Assets/Scenes/4thChallenge.unity
+    guid: 6229ce4dfbcaf96458e2f61b05f3d06c
+  - enabled: 1
+    path: Assets/Scenes/5thChallenge.unity
+    guid: f82ecafd1950a754380357a3e0d95d96
+  - enabled: 1
+    path: Assets/Scenes/6thChallenge.unity
+    guid: 343ae3da6e657fa48a77c9d5571db6e4
+  - enabled: 1
+    path: Assets/Scenes/7thChallenge.unity
+    guid: bf0b520dd63121845b50e3dbdfdeae34
   m_configObjects: {}

@@ -78,5 +78,7 @@ public class Nest : MonoBehaviour
     public void CleanNest()
     {
         nestGrowth = 0;
+        nestScale = new Vector3(500, 500, nestGrowth);
+        transform.localScale = nestScale;
     }
 }

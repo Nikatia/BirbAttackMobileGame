@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Win : MonoBehaviour
     public GameObject analytics;
     public GameObject winlUI;
     public GameObject sling;
+    public GameObject craftButton;
     public int birbs;
     public bool win;
 
@@ -17,6 +19,7 @@ public class Win : MonoBehaviour
     private bool areBirbs;
     private bool winAnaTriggered;
     private int maxBirbs;
+    private string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class Win : MonoBehaviour
         win = false;
         nestDone = false;
         winAnaTriggered = false;
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     // Update is called once per frame
@@ -47,6 +52,11 @@ public class Win : MonoBehaviour
             if (!winAnaTriggered)
             {
                 WinAnalyticsTrigger();
+            }
+
+            if (sceneName == "7thChallenge")
+            {
+                craftButton.SetActive(false);
             }
         }
     }

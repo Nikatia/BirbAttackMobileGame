@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class HouseIsSafe : MonoBehaviour
 {
+    public GameObject analytics;
+
+    private void Start()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "7thChallenge")
+        {
+            analytics.GetComponent<Analytics>().WonByDetermination();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
