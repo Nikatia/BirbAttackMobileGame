@@ -444,8 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a7747ef52cea04ba1468c7cb360a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveData: {fileID: 0}
-  cube: {fileID: 1312391362}
 --- !u!4 &60780768
 Transform:
   m_ObjectHideFlags: 0
@@ -2266,7 +2264,7 @@ MonoBehaviour:
   analytics: {fileID: 432685689}
   winlUI: {fileID: 1243580237}
   sling: {fileID: 1178722247}
-  craftButton: {fileID: 0}
+  craftButton: {fileID: 120119542}
   birbs: 0
   win: 0
 --- !u!1 &522217402
@@ -3027,6 +3025,7 @@ MonoBehaviour:
   kite: {fileID: 2026045084}
   net: {fileID: 315334144}
   spawn: {fileID: 502432467}
+  craftMainButton: {fileID: 120119542}
 --- !u!4 &662882027
 Transform:
   m_ObjectHideFlags: 0

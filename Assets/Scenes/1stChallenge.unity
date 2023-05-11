@@ -1832,7 +1832,7 @@ MonoBehaviour:
   analytics: {fileID: 997006791}
   winlUI: {fileID: 277395871}
   sling: {fileID: 1178722247}
-  craftButton: {fileID: 0}
+  craftButton: {fileID: 927083021}
   birbs: 0
   win: 0
 --- !u!1 &505428835
@@ -6527,6 +6527,7 @@ MonoBehaviour:
   kite: {fileID: 882487564}
   net: {fileID: 2071323034}
   spawn: {fileID: 502432467}
+  craftMainButton: {fileID: 927083021}
 --- !u!4 &1435906696
 Transform:
   m_ObjectHideFlags: 0

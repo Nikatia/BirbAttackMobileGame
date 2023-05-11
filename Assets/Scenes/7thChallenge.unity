@@ -1987,6 +1987,7 @@ MonoBehaviour:
   kite: {fileID: 246102643281850396}
   net: {fileID: 7913284906540670838}
   spawn: {fileID: 502432467}
+  craftMainButton: {fileID: 1444863803}
 --- !u!4 &544280269
 Transform:
   m_ObjectHideFlags: 0

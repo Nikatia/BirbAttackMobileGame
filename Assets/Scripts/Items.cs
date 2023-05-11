@@ -17,6 +17,7 @@ public class Items : MonoBehaviour
     public GameObject kite;
     public GameObject net;
     public GameObject spawn;
+    public GameObject craftMainButton;
 
     private int randomNumber, sticks, strings;
     private int maxSpeederSticks, maxKiteSticks, maxNetSticks;
@@ -143,7 +144,7 @@ public class Items : MonoBehaviour
         }
         else
         {
-            craftSpeederButton.GetComponent<Button>().interactable = false; ;
+            craftSpeederButton.GetComponent<Button>().interactable = false;
         }
 
         //Kite
@@ -168,6 +169,18 @@ public class Items : MonoBehaviour
         else
         {
             craftNetButton.GetComponent<Button>().interactable = false; ;
+        }
+
+        //Craft main button changes depending if there is anything available for crafting
+        if ((sticks >= maxSpeederSticks && strings >= maxSpeederStrings && speederBought == false) || 
+            (sticks >= maxKiteSticks && strings >= maxKiteStrings && kiteBought == false) ||
+            (sticks >= maxNetSticks && strings >= maxNetStrings && netBought == false))
+        {
+            craftMainButton.GetComponent<RawImage>().color = new Color32(190, 167, 150, 255);
+        }
+        else
+        {
+            craftMainButton.GetComponent<RawImage>().color = Color.white;
         }
     }
 

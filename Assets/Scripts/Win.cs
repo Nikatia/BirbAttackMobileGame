@@ -41,8 +41,12 @@ public class Win : MonoBehaviour
         nestDone = nest.GetComponent<Nest>().nestDone;
         if (birbs == maxBirbs)
         {
-            areBirbs = false;
+            if (GameObject.FindWithTag("Birb") == null)
+            {
+                areBirbs = false;
+            }
         }
+        
         if (roundsDone == true && areBirbs == false && nestDone == false)
         {
             winlUI.SetActive(true);
