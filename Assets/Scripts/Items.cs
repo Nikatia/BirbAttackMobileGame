@@ -6,16 +6,13 @@ using UnityEngine.UI;
 
 public class Items : MonoBehaviour
 {
-    public GameObject stickPrefab;
-    public GameObject stringPrefab;
+    public GameObject stickPrefab, stringPrefab;
     public GameObject plus;
     public GameObject slingSpeederSticks, kiteSticks, netSticks;
     public GameObject slingSpeederStrings, kiteStrings, netStrings;
     public GameObject noDestroyData;
     public GameObject craftSpeederButton, craftKiteButton, craftNetButton;
-    public GameObject sling;
-    public GameObject kite;
-    public GameObject net;
+    public GameObject sling, kite, net;
     public GameObject spawn;
     public GameObject craftMainButton;
 
@@ -38,6 +35,7 @@ public class Items : MonoBehaviour
         sticks = noDestroyData.GetComponent<NoDestroyData>().sticks;
         strings = noDestroyData.GetComponent <NoDestroyData>().strings;
 
+        //materials needed to craft
         maxSpeederSticks = 2;
         maxSpeederStrings = 4;
 

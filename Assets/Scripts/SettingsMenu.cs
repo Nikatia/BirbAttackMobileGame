@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    //Not in use at the moment
+
     public GameObject birb;
     public GameObject cameraForAudio;
     public GameObject slider;

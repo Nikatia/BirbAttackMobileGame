@@ -23,7 +23,7 @@ public class HouseIsSafe : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Began) //redirect to Main Menu on touch
             {
                 SceneManager.LoadScene("MainMenu");
             }

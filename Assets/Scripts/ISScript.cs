@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ISScript : MonoBehaviour
 {
     private string appKey = "19d2d39cd";
-    //public GameObject saveData;
-    //public GameObject cube;
+
     // Start is called before the first frame update
     void Start()
     {
         IronSource.Agent.init(appKey);
-        //saveData = GameObject.Find("SaveData");
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "MainMenu") //banner is supposed to be shown only in main menu
+        {
+            LoadBanner();
+        }    
     }
 
     private void OnEnable()
@@ -20,7 +26,6 @@ public class ISScript : MonoBehaviour
         IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
 
         //Rewarded Ad
-        //Add AdInfo Rewarded Video Events
         IronSourceRewardedVideoEvents.onAdOpenedEvent += RewardedVideoOnAdOpenedEvent;
         IronSourceRewardedVideoEvents.onAdClosedEvent += RewardedVideoOnAdClosedEvent;
         IronSourceRewardedVideoEvents.onAdAvailableEvent += RewardedVideoOnAdAvailable;
@@ -28,6 +33,14 @@ public class ISScript : MonoBehaviour
         IronSourceRewardedVideoEvents.onAdShowFailedEvent += RewardedVideoOnAdShowFailedEvent;
         IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardedVideoOnAdRewardedEvent;
         IronSourceRewardedVideoEvents.onAdClickedEvent += RewardedVideoOnAdClickedEvent;
+
+        //Banner
+        IronSourceBannerEvents.onAdLoadedEvent += BannerOnAdLoadedEvent;
+        IronSourceBannerEvents.onAdLoadFailedEvent += BannerOnAdLoadFailedEvent;
+        IronSourceBannerEvents.onAdClickedEvent += BannerOnAdClickedEvent;
+        IronSourceBannerEvents.onAdScreenPresentedEvent += BannerOnAdScreenPresentedEvent;
+        IronSourceBannerEvents.onAdScreenDismissedEvent += BannerOnAdScreenDismissedEvent;
+        IronSourceBannerEvents.onAdLeftApplicationEvent += BannerOnAdLeftApplicationEvent;
 
     }
 
@@ -53,7 +66,18 @@ public class ISScript : MonoBehaviour
         }
     }
 
-    
+    public void LoadBanner()
+    {
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
+
+    }
+
+    public void DestroyBanner()
+    {
+        IronSource.Agent.destroyBanner();
+    }
+
+
     /************* RewardedVideo AdInfo Delegates *************/
     // Indicates that there’s an available ad.
     // The adInfo object includes information about the ad that was loaded successfully
@@ -90,6 +114,35 @@ public class ISScript : MonoBehaviour
     // This callback is not supported by all networks, and we recommend using it only if
     // it’s supported by all networks you included in your build.
     void RewardedVideoOnAdClickedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
+    {
+    }
+
+
+    /************* Banner AdInfo Delegates *************/
+    //Invoked once the banner has loaded
+    void BannerOnAdLoadedEvent(IronSourceAdInfo adInfo)
+    {
+        Debug.Log("Banner Loaded");
+    }
+    //Invoked when the banner loading process has failed.
+    void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
+    {
+        Debug.Log("Banner NOT Loaded");
+    }
+    // Invoked when end user clicks on the banner ad
+    void BannerOnAdClickedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Notifies the presentation of a full screen content following user click
+    void BannerOnAdScreenPresentedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Notifies the presented screen has been dismissed
+    void BannerOnAdScreenDismissedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Invoked when the user leaves the app
+    void BannerOnAdLeftApplicationEvent(IronSourceAdInfo adInfo)
     {
     }
 

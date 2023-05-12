@@ -31,6 +31,7 @@ public class Shooting : MonoBehaviour
         anim = sling.gameObject.GetComponent<Animator>();
         rdy = true;
 
+        //check if speeder is on
         speederOn = saveData.GetComponent<NoDestroyData>().speederOn;
         AdjustSlingSpeed();
     }
@@ -73,7 +74,7 @@ public class Shooting : MonoBehaviour
             }
 
             //when touch has ended, shoots
-            if (Input.GetTouch(0).phase == TouchPhase.Ended && rdy == true)
+            if (Input.GetTouch(0).phase == TouchPhase.Ended && rdy == true) //shooting only when sling is ready to shoot
             {
                 StartCoroutine(Shoot());
                 analytics.GetComponent<Analytics>().AddShots();
@@ -99,6 +100,7 @@ public class Shooting : MonoBehaviour
         AdjustSlingSpeed();
     }
 
+    //slingshot shooting speed depends on speeder crafting status
     public void AdjustSlingSpeed()
     {
         if (speederOn == false)

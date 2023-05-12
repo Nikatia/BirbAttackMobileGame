@@ -24,6 +24,7 @@ public class Nest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //when nest is ready
         maxNest = new Vector3(500, 500, 1000);
 
         if (saveData == null)
@@ -31,6 +32,7 @@ public class Nest : MonoBehaviour
             saveData = GameObject.Find("SaveData"); //data, which is not destroyed inbetween scenes
         }
 
+        //check what is saved nest growth stage and apply
         nestGrowth = saveData.GetComponent<NoDestroyData>().nestGrowth;
         nestScale = new Vector3(500, 500, nestGrowth);
         transform.localScale = nestScale;
@@ -43,10 +45,10 @@ public class Nest : MonoBehaviour
     {
         if (!nestScale.Equals(maxNest)) //if nest is still not ready for the eggs
         {
-            Debug.Log("Grow");
+            //Debug.Log("Grow");
             nestGrowth = nestGrowth + 200;
             nestScale = new Vector3(500, 500, nestGrowth);
-            transform.localScale = nestScale;
+            transform.localScale = nestScale; 
             saveData.GetComponent<NoDestroyData>().NestGrowthSave();
         }
         else //if nest is prepared for the eggs
@@ -75,7 +77,7 @@ public class Nest : MonoBehaviour
         }
     }
 
-    public void CleanNest()
+    public void CleanNest() //nest reset back to 0
     {
         nestGrowth = 0;
         nestScale = new Vector3(500, 500, nestGrowth);

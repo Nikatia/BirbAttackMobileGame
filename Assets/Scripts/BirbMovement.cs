@@ -16,6 +16,7 @@ public class BirbMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //setting up bird's speed as random number between max and min speed
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
         if (sceneName == "1stChallenge")
@@ -23,40 +24,44 @@ public class BirbMovement : MonoBehaviour
             maxSpeed = 20f;
             minSpeed = 10f;
         }
-        if (sceneName == "2ndChallenge")
+        else if (sceneName == "2ndChallenge")
         {
             maxSpeed = 25f;
             minSpeed = 15f;
         }
-        if (sceneName == "3rdChallenge")
+        else if (sceneName == "3rdChallenge")
         {
             maxSpeed = 28f;
             minSpeed = 18f;
         }
-        if (sceneName == "4thChallenge" || sceneName == "5thChallenge")
+        else if (sceneName == "4thChallenge" || sceneName == "5thChallenge")
         {
             maxSpeed = 33f;
             minSpeed = 23f;
         }
-        if (sceneName == "6thChallenge")
+        else if (sceneName == "6thChallenge")
         {
             maxSpeed = 36f;
             minSpeed = 26f;
         }
-        if (sceneName == "7thChallenge")
+        else if (sceneName == "7thChallenge")
         {
             maxSpeed = 36f;
             minSpeed = 26f;
         }
         speed = Random.Range(minSpeed, maxSpeed);
 
+        //toggles between up and down, which is used in update to change direction of additional movement
         StartCoroutine(UpAndDown());
     }
 
     // Update is called once per frame
     void Update()
     {
+        //moves forward with setted at start speed
         transform.position += transform.forward * speed * Time.deltaTime;
+
+        //moves up or down depending on bool, that is set in coroutine
         if (speed != 0)
         {
             if (isUp)

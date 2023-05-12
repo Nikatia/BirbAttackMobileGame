@@ -37,9 +37,9 @@ public class Win : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        roundsDone = spawn.GetComponent<Spawning>().done;
-        nestDone = nest.GetComponent<Nest>().nestDone;
-        if (birbs == maxBirbs)
+        roundsDone = spawn.GetComponent<Spawning>().done; //checking if spawner has done its job
+        nestDone = nest.GetComponent<Nest>().nestDone; //checking if nest is not done
+        if (birbs == maxBirbs) //checking if any birds exist
         {
             if (GameObject.FindWithTag("Birb") == null)
             {
@@ -47,6 +47,7 @@ public class Win : MonoBehaviour
             }
         }
         
+        //if all birds have been spawned, nest is not done and there is no birds alive, then player wins
         if (roundsDone == true && areBirbs == false && nestDone == false)
         {
             winlUI.SetActive(true);
